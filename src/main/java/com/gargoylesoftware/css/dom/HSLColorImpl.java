@@ -108,7 +108,7 @@ public class HSLColorImpl implements Serializable {
             if (LexicalUnitType.INTEGER != next.getLexicalUnitType()
                     && LexicalUnitType.REAL != next.getLexicalUnitType()
                     && LexicalUnitType.PERCENTAGE != next.getLexicalUnitType()) {
-                new DOMException(DOMException.SYNTAX_ERR, "Alpha part has to be numeric or percentage.");
+                throw new DOMException(DOMException.SYNTAX_ERR, "Alpha part has to be numeric or percentage.");
             }
             alpha_ = new CSSValueImpl(next, true);
             next = next.getNextLexicalUnit();
@@ -152,7 +152,7 @@ public class HSLColorImpl implements Serializable {
         if (LexicalUnitType.INTEGER != next.getLexicalUnitType()
                 && LexicalUnitType.REAL != next.getLexicalUnitType()
                 && LexicalUnitType.PERCENTAGE != next.getLexicalUnitType()) {
-            new DOMException(DOMException.SYNTAX_ERR, "Alpha part has to be numeric or percentage.");
+            throw new DOMException(DOMException.SYNTAX_ERR, "Alpha part has to be numeric or percentage.");
         }
         alpha_ = new CSSValueImpl(next, true);
 
@@ -163,48 +163,63 @@ public class HSLColorImpl implements Serializable {
     }
 
     /**
-     * @return the red part.
+     * @return the hue part.
      */
-    public CSSValueImpl getRed() {
+    public CSSValueImpl getHue() {
         return hue_;
     }
 
     /**
-     * Sets the red part to a new value.
-     * @param red the new CSSPrimitiveValue
+     * Sets the hue part to a new value.
+     * @param hue the new primitive CSSValueImpl value
      */
-    public void setRed(final CSSValueImpl red) {
-        hue_ = red;
+    public void setHue(final CSSValueImpl hue) {
+        hue_ = hue;
     }
 
     /**
-     * @return the green part.
+     * @return the saturation part.
      */
-    public CSSValueImpl getGreen() {
+    public CSSValueImpl getSaturation() {
         return saturation_;
     }
 
     /**
-     * Sets the green part to a new value.
-     * @param green the new CSSPrimitiveValue
+     * Sets the saturation part to a new value.
+     * @param saturation the new primitive CSSValueImpl value
      */
-    public void setGreen(final CSSValueImpl green) {
-        saturation_ = green;
+    public void setSaturation(final CSSValueImpl saturation) {
+        saturation_ = saturation;
     }
 
     /**
-     * @return the blue part.
+     * @return the lightness part.
      */
-    public CSSValueImpl getBlue() {
+    public CSSValueImpl getLightness() {
         return lightness_;
     }
 
     /**
-     * Sets the blue part to a new value.
-     * @param blue the new CSSPrimitiveValue
+     * Sets the lightness part to a new value.
+     * @param lightness the new primitive CSSValueImpl value
      */
-    public void setBlue(final CSSValueImpl blue) {
-        lightness_ = blue;
+    public void setLightness(final CSSValueImpl lightness) {
+        lightness_ = lightness;
+    }
+
+    /**
+     * @return the alpha part.
+     */
+    public CSSValueImpl getAlpha() {
+        return alpha_;
+    }
+
+    /**
+     * Sets the alpha part to a new value.
+     * @param alpha the new primitive CSSValueImpl value
+     */
+    public void setAlpha(final CSSValueImpl alpha) {
+        alpha_ = alpha;
     }
 
     /**
